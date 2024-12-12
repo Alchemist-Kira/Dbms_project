@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register - Password Manager</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="content">
+        <form method="POST" class="form register-form" id="registerForm">
+          <div class="text">Register</div>
+          <div class="error-msg hidden">
+            <i class="fas fa-exclamation-circle"></i>
+            <span id="errorText"></span>
+          </div>
+
+          <div class="field">
+            <input type="text" name="username" required />
+            <span class="fas fa-user"></span>
+            <label>Username</label>
+          </div>
+          <div class="field">
+            <input type="password" name="password" required />
+            <span class="fas fa-lock"></span>
+            <label>Password</label>
+          </div>
+          <div class="field">
+            <input type="password" name="confirm_password" required />
+            <span class="fas fa-lock"></span>
+            <label>Confirm password</label>
+          </div>
+          <button type="submit">Sign up</button>
+          <div class="sign-up">
+            Already have an account?
+            <br />
+            <a href="login.html">login now</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

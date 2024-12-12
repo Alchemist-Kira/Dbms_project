@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Admin Panel - Password Manager</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body class="dashboard-body">
+    <div class="dashboard-container">
+      <header class="dashboard-header">
+        <div class="header-text">
+          <h2>Admin Panel</h2>
+          <div class="admin-subtitle">Manage users and monitor system</div>
+        </div>
+        <div class="header-actions">
+          <a href="dashboard.html" class="neu-button">
+            <i class="fas fa-home"></i> Dashboard
+          </a>
+          <a href="#" onclick="logout(); return false;" class="neu-button">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </div>
+      </header>
+
+      <div class="compact-stats">
+        <div class="stat-badge">
+          <i class="fas fa-users"></i>
+          <span id="totalUsers">0 Users</span>
+        </div>
+        <div class="stat-badge">
+          <i class="fas fa-key"></i>
+          <span id="totalPasswords">0 Passwords</span>
+        </div>
+      </div>
+
+      <div class="users-table-section">
+        <div class="table-header">
+          <div class="section-title">
+            <i class="fas fa-user-cog"></i>
+            Manage Users
+          </div>
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchUsers" placeholder="Search users..." />
+          </div>
+        </div>
+        <div id="usersList" class="users-list">
+          <!-- Users will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+    <script>
+      // Check admin access on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../auth.php?check_admin=1")
+          .then((response) => response.json())
+          .then((data) => {
+            if (!data.is_admin) {
+              window.location.replace("dashboard.html");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            window.location.replace("dashboard.html");
+          });
+      });
+    </script>
+  </body>
+</html>

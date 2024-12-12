@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard - Password Manager</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body class="dashboard-body">
+    <div class="dashboard-container">
+      <header class="dashboard-header">
+        <div class="header-text">
+          <h2>Welcome, <span id="username"></span></h2>
+        </div>
+        <div class="header-actions">
+          <a
+            href="admin.html"
+            class="neu-button admin-only"
+            style="display: none"
+          >
+            <i class="fas fa-user-shield"></i> Admin Panel
+          </a>
+          <a href="#" onclick="logout(); return false;" class="neu-button">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </div>
+      </header>
+
+      <div class="add-password-section">
+        <div class="section-title">
+          <i class="fas fa-plus-circle"></i>
+          Add New Password
+        </div>
+        <form id="addPasswordForm" class="neu-form">
+          <div class="field">
+            <input type="text" name="website" required />
+            <span class="fas fa-globe"></span>
+            <label>Website</label>
+          </div>
+          <div class="field">
+            <input type="text" name="username" required />
+            <span class="fas fa-user"></span>
+            <label>Username</label>
+          </div>
+          <div class="field">
+            <input type="password" name="password" required />
+            <span class="fas fa-lock"></span>
+            <label>Password</label>
+          </div>
+          <button type="submit"><i class="fas fa-plus"></i> Add</button>
+        </form>
+      </div>
+
+      <div class="passwords-section">
+        <div class="section-title">
+          <i class="fas fa-key"></i>
+          Your Passwords
+        </div>
+        <div id="passwordsList" class="passwords-list">
+          <!-- Passwords will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
