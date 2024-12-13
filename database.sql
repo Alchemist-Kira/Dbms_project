@@ -19,6 +19,6 @@ CREATE TABLE passwords (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Create admin user (password: 123)
+
 INSERT INTO users (username, password, is_admin) 
 VALUES ('System', '$2y$10$mDAH.R8GZYp7lp3K0F7HwuCkQj2GxgHHHICB.GG1rpbYL6c3ZyS/i', 1); 
